@@ -1,42 +1,47 @@
 ﻿Public Class Form1
-    Dim engmarks As Integer = 0
-    Dim mathsmarks As Integer = 0
-    Dim pemarks As Integer = 0
-    Dim rows As Integer = 0
     Dim sr As New System.IO.StreamReader("u:\kolal17337\My Documents\My Pictures\markdata.csv")
+    Dim marksarray2(100, 100) As String
 
-    Private Sub btn_calculate_Click(sender As Object, e As EventArgs) Handles btn_calculate.Click
+    Private Sub btn_calculate_Click(sender As Object, e As EventArgs) Handles btnRead.Click
+        Dim y As Integer = 0
+        Dim z As Integer = 0
+        Dim a As Integer = 0
+        Dim x As Integer = 0
+
         Do Until sr.EndOfStream = True
             lbl_read.Text = sr.ReadLine & vbNewLine
             Dim marksarray() As String = Split(lbl_read.Text, Delimiter:=",")
 
+            lblNames.Text = marksarray(0)
+            marksarray2(x, 0) = lblNames.Text
+            x = x + 1
+
             lbl_engmarks.Text = marksarray(1)
-            If IsNumeric(marksarray(1)) Then
-                engmarks = lbl_engmarks.Text + engmarks
-                rows = rows + 1
-            End If
+            marksarray2(y, 1) = lbl_engmarks.Text
+            y = y + 1
 
             lbl_mathsmarks.Text = marksarray(2)
-            If IsNumeric(marksarray(2)) Then
-                mathsmarks = lbl_mathsmarks.Text + mathsmarks
-            End If
+            marksarray2(z, 2) = lbl_mathsmarks.Text
+            z = z + 1
 
             lbl_pemarks.Text = marksarray(3)
-            If IsNumeric(marksarray(3)) Then
-                pemarks = lbl_pemarks.Text + pemarks
-            End If
+            marksarray2(a, 3) = lbl_pemarks.Text
+            a = a + 1
 
-            lbl_engavg.Text = "The average english mark is: " & engmarks / rows
-            lbl_mathavg.Text = "The average maths mark is: " & mathsmarks / rows
-            lbl_peavg.Text = "The average pe mark is: " & pemarks / rows
         Loop
     End Sub
 
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles lbl_read.Click
-
-    End Sub
-
-    Private Sub Label5_Click(sender As Object, e As EventArgs) Handles lbl_engavg.Click
-
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
+        Dim strName
+        Dim c As Integer = 0
+        strName = InputBox("What is the name of the student?")
+        While c < 7
+            If marksarray2(c, 0) = strName Then
+                MsgBox("The person's marks are " & marksarray2(c, 1) & " for English, " & marksarray2(c, 2) & " for Maths, and " & marksarray2(c, 3) & " for PE.")
+                c = c + 1
+            Else
+                c = c + 1
+            End If
+        End While
     End Sub
 End Class

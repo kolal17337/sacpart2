@@ -22,24 +22,23 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.btn_calculate = New System.Windows.Forms.Button()
+        Me.btnRead = New System.Windows.Forms.Button()
         Me.lbl_read = New System.Windows.Forms.Label()
         Me.lbl_engmarks = New System.Windows.Forms.Label()
         Me.lbl_mathsmarks = New System.Windows.Forms.Label()
         Me.lbl_pemarks = New System.Windows.Forms.Label()
-        Me.lbl_engavg = New System.Windows.Forms.Label()
-        Me.lbl_mathavg = New System.Windows.Forms.Label()
-        Me.lbl_peavg = New System.Windows.Forms.Label()
+        Me.lblNames = New System.Windows.Forms.Label()
+        Me.btnSearch = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
-        'btn_calculate
+        'btnRead
         '
-        Me.btn_calculate.Location = New System.Drawing.Point(55, 40)
-        Me.btn_calculate.Name = "btn_calculate"
-        Me.btn_calculate.Size = New System.Drawing.Size(234, 139)
-        Me.btn_calculate.TabIndex = 0
-        Me.btn_calculate.Text = "click to calculate average"
-        Me.btn_calculate.UseVisualStyleBackColor = True
+        Me.btnRead.Location = New System.Drawing.Point(55, 40)
+        Me.btnRead.Name = "btnRead"
+        Me.btnRead.Size = New System.Drawing.Size(234, 139)
+        Me.btnRead.TabIndex = 0
+        Me.btnRead.Text = "click to read file"
+        Me.btnRead.UseVisualStyleBackColor = True
         '
         'lbl_read
         '
@@ -53,7 +52,7 @@ Partial Class Form1
         'lbl_engmarks
         '
         Me.lbl_engmarks.AutoSize = True
-        Me.lbl_engmarks.Location = New System.Drawing.Point(52, 232)
+        Me.lbl_engmarks.Location = New System.Drawing.Point(52, 287)
         Me.lbl_engmarks.Name = "lbl_engmarks"
         Me.lbl_engmarks.Size = New System.Drawing.Size(39, 13)
         Me.lbl_engmarks.TabIndex = 2
@@ -62,7 +61,7 @@ Partial Class Form1
         'lbl_mathsmarks
         '
         Me.lbl_mathsmarks.AutoSize = True
-        Me.lbl_mathsmarks.Location = New System.Drawing.Point(52, 275)
+        Me.lbl_mathsmarks.Location = New System.Drawing.Point(52, 330)
         Me.lbl_mathsmarks.Name = "lbl_mathsmarks"
         Me.lbl_mathsmarks.Size = New System.Drawing.Size(39, 13)
         Me.lbl_mathsmarks.TabIndex = 3
@@ -71,52 +70,42 @@ Partial Class Form1
         'lbl_pemarks
         '
         Me.lbl_pemarks.AutoSize = True
-        Me.lbl_pemarks.Location = New System.Drawing.Point(52, 320)
+        Me.lbl_pemarks.Location = New System.Drawing.Point(52, 375)
         Me.lbl_pemarks.Name = "lbl_pemarks"
         Me.lbl_pemarks.Size = New System.Drawing.Size(39, 13)
         Me.lbl_pemarks.TabIndex = 4
         Me.lbl_pemarks.Text = "Label4"
         '
-        'lbl_engavg
+        'lblNames
         '
-        Me.lbl_engavg.AutoSize = True
-        Me.lbl_engavg.Location = New System.Drawing.Point(334, 40)
-        Me.lbl_engavg.Name = "lbl_engavg"
-        Me.lbl_engavg.Size = New System.Drawing.Size(39, 13)
-        Me.lbl_engavg.TabIndex = 5
-        Me.lbl_engavg.Text = "Label5"
+        Me.lblNames.AutoSize = True
+        Me.lblNames.Location = New System.Drawing.Point(52, 247)
+        Me.lblNames.Name = "lblNames"
+        Me.lblNames.Size = New System.Drawing.Size(39, 13)
+        Me.lblNames.TabIndex = 5
+        Me.lblNames.Text = "Label1"
         '
-        'lbl_mathavg
+        'btnSearch
         '
-        Me.lbl_mathavg.AutoSize = True
-        Me.lbl_mathavg.Location = New System.Drawing.Point(334, 77)
-        Me.lbl_mathavg.Name = "lbl_mathavg"
-        Me.lbl_mathavg.Size = New System.Drawing.Size(39, 13)
-        Me.lbl_mathavg.TabIndex = 6
-        Me.lbl_mathavg.Text = "Label6"
-        '
-        'lbl_peavg
-        '
-        Me.lbl_peavg.AutoSize = True
-        Me.lbl_peavg.Location = New System.Drawing.Point(334, 123)
-        Me.lbl_peavg.Name = "lbl_peavg"
-        Me.lbl_peavg.Size = New System.Drawing.Size(39, 13)
-        Me.lbl_peavg.TabIndex = 7
-        Me.lbl_peavg.Text = "Label7"
+        Me.btnSearch.Location = New System.Drawing.Point(327, 60)
+        Me.btnSearch.Name = "btnSearch"
+        Me.btnSearch.Size = New System.Drawing.Size(291, 98)
+        Me.btnSearch.TabIndex = 6
+        Me.btnSearch.Text = "click to search for a student name"
+        Me.btnSearch.UseVisualStyleBackColor = True
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.lbl_peavg)
-        Me.Controls.Add(Me.lbl_mathavg)
-        Me.Controls.Add(Me.lbl_engavg)
+        Me.Controls.Add(Me.btnSearch)
+        Me.Controls.Add(Me.lblNames)
         Me.Controls.Add(Me.lbl_pemarks)
         Me.Controls.Add(Me.lbl_mathsmarks)
         Me.Controls.Add(Me.lbl_engmarks)
         Me.Controls.Add(Me.lbl_read)
-        Me.Controls.Add(Me.btn_calculate)
+        Me.Controls.Add(Me.btnRead)
         Me.Name = "Form1"
         Me.Text = "Form1"
         Me.ResumeLayout(False)
@@ -124,12 +113,11 @@ Partial Class Form1
 
     End Sub
 
-    Friend WithEvents btn_calculate As Button
+    Friend WithEvents btnRead As Button
     Friend WithEvents lbl_read As Label
     Friend WithEvents lbl_engmarks As Label
     Friend WithEvents lbl_mathsmarks As Label
     Friend WithEvents lbl_pemarks As Label
-    Friend WithEvents lbl_engavg As Label
-    Friend WithEvents lbl_mathavg As Label
-    Friend WithEvents lbl_peavg As Label
+    Friend WithEvents lblNames As Label
+    Friend WithEvents btnSearch As Button
 End Class
